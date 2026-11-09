@@ -1,0 +1,60 @@
+- !<AssetImportMetadata/998a6af9-3c3e-4257-b835-6de5e2916511>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 9e3f410d-ba87-47d0-9255-0175c452283f
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 9e3f410d-ba87-47d0-9255-0175c452283f
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> f79fbf59-9e75-4637-ab47-d57ea0779a88
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/f79fbf59-9e75-4637-ab47-d57ea0779a88>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: eaf68fb4-92ca-44f6-bb19-37eabfe990e9
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    buttonWidthCm: false
+    hintColor: false
+    label: false
+    viewingDistanceCm: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - label: Plant it
+      buttonWidthCm: !<float> 13.000000
+      viewingDistanceCm: !<float> 140.000000
+      hintColor: !<Vec4> {x: 1.000000, y: 0.960000, z: 0.860000, w: 1.000000}
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA;\">PlotTwistPlantItUI – \"Plant it\" button at the near-right corner</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA;\">Settings</span>"}'
+    - '// @ui {"widget":"group_start", "label":"Settings"}'
+    - '// @input string label = "Plant it" {"hint":"Button label"}'
+    - '// @input float buttonWidthCm = 13 {"hint":"Button width in cm (height is half). Brief: about 12 cm across", "widget":"slider", "min":8, "max":20, "step":0.5}'
+    - '// @input float viewingDistanceCm = 140 {"hint":"Typical viewing distance (cm) used to scale the label and hint text", "widget":"slider", "min":60, "max":250, "step":5}'
+    - '// @input vec4 hintColor = "{1,0.96,0.86,1}" {"hint":"Hint text colour (keep it light)", "widget":"color"}'
+    - '// @ui {"widget":"group_end"}'

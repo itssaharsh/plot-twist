@@ -1,0 +1,63 @@
+- !<AssetImportMetadata/fce3f253-6823-4872-85f0-3c13fd50e4a7>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 65bfe60c-974e-4f73-8ef1-fc1b53e8a32b
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 65bfe60c-974e-4f73-8ef1-fc1b53e8a32b
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 4dc85c57-9db1-41cc-982b-2b14c35d4ad8
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/4dc85c57-9db1-41cc-982b-2b14c35d4ad8>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 5d7fc04d-9f69-4aa3-969c-c73b496053bf
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    labelColor: false
+    monthLabels: false
+    sliderHeightCm: false
+    sliderLengthCm: false
+    viewingDistanceCm: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - sliderLengthCm: !<float> 60.000000
+      sliderHeightCm: 3.400000
+      monthLabels: "May,Jun,Jul,Aug"
+      viewingDistanceCm: !<float> 140.000000
+      labelColor: !<Vec4> {x: 1.000000, y: 0.960000, z: 0.860000, w: 1.000000}
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA;\">PlotTwistMonthSliderUI – May→Aug slider on the near rim</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA;\">Settings</span>"}'
+    - '// @ui {"widget":"group_start", "label":"Settings"}'
+    - '// @input float sliderLengthCm = 60 {"hint":"Slider length in cm (brief: about 60 cm)", "widget":"slider", "min":30, "max":90, "step":1}'
+    - '// @input float sliderHeightCm = 3.4 {"hint":"Slider thickness / knob size in cm — big enough to pinch from the foot of the bed", "widget":"slider", "min":2, "max":6, "step":0.1}'
+    - '// @input string monthLabels = "May,Jun,Jul,Aug" {"hint":"Tick labels, comma separated, left (May) to right (Aug)"}'
+    - '// @input float viewingDistanceCm = 140 {"hint":"Typical viewing distance (cm) used to scale the tick labels", "widget":"slider", "min":60, "max":250, "step":5}'
+    - '// @input vec4 labelColor = "{1,0.96,0.86,1}" {"hint":"Tick label colour (keep it light)", "widget":"color"}'
+    - '// @ui {"widget":"group_end"}'

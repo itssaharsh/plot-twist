@@ -1,0 +1,63 @@
+- !<AssetImportMetadata/ae0ef236-90e5-4686-be52-7d82391e56d4>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> f9b0f41c-826e-4b04-ace5-0d43807db5a9
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> f9b0f41c-826e-4b04-ace5-0d43807db5a9
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> dd3807ca-8497-4e5b-b9d8-1a299d8ebe03
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/dd3807ca-8497-4e5b-b9d8-1a299d8ebe03>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 95c63f24-2bc7-443f-89b6-489a3d63ac8e
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    gapCm: false
+    packetHeightCm: false
+    packetWidthCm: false
+    textColor: false
+    viewingDistanceCm: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - packetWidthCm: !<float> 14.000000
+      packetHeightCm: !<float> 20.000000
+      gapCm: !<float> 2.000000
+      viewingDistanceCm: !<float> 130.000000
+      textColor: !<Vec4> {x: 1.000000, y: 0.960000, z: 0.860000, w: 1.000000}
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA;\">PlotTwistSeedPacketsUI – four seed packets to drag onto the soil</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA;\">Settings</span>"}'
+    - '// @ui {"widget":"group_start", "label":"Settings"}'
+    - '// @input float packetWidthCm = 14 {"hint":"Packet width in cm (brief: about 14)", "widget":"slider", "min":8, "max":24, "step":0.5}'
+    - '// @input float packetHeightCm = 20 {"hint":"Packet height in cm (brief: about 20)", "widget":"slider", "min":12, "max":30, "step":0.5}'
+    - '// @input float gapCm = 2 {"hint":"Gap between packets in cm", "widget":"slider", "min":0, "max":6, "step":0.1}'
+    - '// @input float viewingDistanceCm = 150 {"hint":"Typical viewing distance (cm) used to scale the packet text", "widget":"slider", "min":60, "max":250, "step":5}'
+    - '// @input vec4 textColor = "{1,0.96,0.86,1}" {"hint":"Packet text colour (keep it light)", "widget":"color"}'
+    - '// @ui {"widget":"group_end"}'

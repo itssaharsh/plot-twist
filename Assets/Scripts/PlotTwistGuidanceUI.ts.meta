@@ -1,0 +1,63 @@
+- !<AssetImportMetadata/75745045-8ab1-437a-a497-40248c8399b6>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 8f71d9f9-77e0-4451-ac03-54432951ff1b
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 8f71d9f9-77e0-4451-ac03-54432951ff1b
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> ef51fbf2-842f-47f8-9f1d-18aa499d92df
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/ef51fbf2-842f-47f8-9f1d-18aa499d92df>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 4108adbb-6132-49e8-bf14-e723efd8a60b
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    doneButtonWidthCm: false
+    doneLabel: false
+    lineTextSize: false
+    plantedText: false
+    textColor: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - textColor: !<Vec4> {x: 1.000000, y: 0.960000, z: 0.860000, w: 1.000000}
+      lineTextSize: !<float> 190.000000
+      plantedText: Your bed is planted
+      doneLabel: Done
+      doneButtonWidthCm: !<float> 12.000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA;\">PlotTwistGuidanceUI – warning line, dig spot line + Done, planted message</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA;\">Settings</span>"}'
+    - '// @ui {"widget":"group_start", "label":"Settings"}'
+    - '// @input vec4 textColor = "{1,0.96,0.86,1}" {"hint":"Colour of every guidance line (keep it light — dark text vanishes on Specs)", "widget":"color"}'
+    - '// @input float lineTextSize = 190 {"hint":"Warning / dig-spot line text size (Text.size). 190 ≈ 3 cm capital letters, readable from the foot of the bed", "widget":"slider", "min":100, "max":320, "step":5}'
+    - '// @input string plantedText = "Your bed is planted" {"hint":"Message shown after the last dig spot"}'
+    - '// @input string doneLabel = "Done" {"hint":"Label on the Done button in planting mode"}'
+    - '// @input float doneButtonWidthCm = 12 {"hint":"Done button width in cm (height is half). Brief: about 12 cm across", "widget":"slider", "min":8, "max":20, "step":0.5}'
+    - '// @ui {"widget":"group_end"}'

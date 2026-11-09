@@ -1,0 +1,150 @@
+- !<AssetImportMetadata/b5ab4e6d-7b9f-4770-b6d7-00c5bacac2c0>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 2d76ae8b-5da8-48fd-b5a3-a2a879e4eae6
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 2d76ae8b-5da8-48fd-b5a3-a2a879e4eae6
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 92bfb858-e040-4db0-a328-46736ec2d0c5
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/92bfb858-e040-4db0-a328-46736ec2d0c5>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 96ee7d77-0b83-4b30-95da-863a55ab534c
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    basilModel: false
+    camera: false
+    crowdingThresholdCm: false
+    debugColliders: false
+    demoLayoutOnStart: false
+    demoStartMonth: false
+    digSpot: false
+    dimColor: false
+    dropTick: false
+    eyeHeightCm: false
+    ghostSeedling: false
+    guidance: false
+    lettuceModel: false
+    monthSlider: false
+    offViewArrow: false
+    overlayMaterial: false
+    pickupTick: false
+    plantIt: false
+    plantsRoot: false
+    plotRoot: false
+    ringHoldSeconds: false
+    seatPlotAtUser: false
+    seedPackets: false
+    sfxVolume: false
+    shadeColor: false
+    shadeRoot: false
+    softChime: false
+    successChime: false
+    tomatoModel: false
+    zucchiniModel: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - camera: !<reference.Camera> 00000000-0000-0000-0000-000000000000
+      plotRoot: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      plantsRoot: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      shadeRoot: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      ghostSeedling: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      digSpot: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      offViewArrow: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      seedPackets: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      monthSlider: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+      plantIt: !<MappingBased.AssignableType_3> 00000000-0000-0000-0000-000000000000
+      guidance: !<MappingBased.AssignableType_4> 00000000-0000-0000-0000-000000000000
+      overlayMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      tomatoModel: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+      zucchiniModel: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+      basilModel: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+      lettuceModel: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+      softChime: !<reference.AudioTrackAsset> 00000000-0000-0000-0000-000000000000
+      successChime: !<reference.AudioTrackAsset> 00000000-0000-0000-0000-000000000000
+      pickupTick: !<reference.AudioTrackAsset> 00000000-0000-0000-0000-000000000000
+      dropTick: !<reference.AudioTrackAsset> 00000000-0000-0000-0000-000000000000
+      ringHoldSeconds: !<float> 2.000000
+      crowdingThresholdCm: !<float> 5.000000
+      shadeColor: !<Vec4> {x: 0.800000, y: 0.720000, z: 1.000000, w: 0.420000}
+      dimColor: !<Vec4> {x: 0.340000, y: 0.420000, z: 0.320000, w: 0.500000}
+      sfxVolume: 0.800000
+      seatPlotAtUser: true
+      eyeHeightCm: !<float> 160.000000
+      debugColliders: false
+      demoLayoutOnStart: false
+      demoStartMonth: !<float> 3.000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA;\">PlotTwistMain – raised-bed planner orchestration + test API</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA;\">References</span>"}'
+    - '// @ui {"widget":"group_start", "label":"References"}'
+    - '// @input Component.Camera camera {"hint":"Main camera (Camera Object) — used for drag rays and the off-view test"}'
+    - '// @input SceneObject plotRoot {"hint":"PlotRoot: every bed coordinate is local to this object (move it to re-seat the bed)"}'
+    - '// @input SceneObject plantsRoot {"hint":"Container for planted Plant_<Type>_<n> objects"}'
+    - '// @input SceneObject shadeRoot {"hint":"Container for ShadePatch_<plant> objects"}'
+    - '// @input SceneObject ghostSeedling {"hint":"Ghost seedling + faint spacing ring shown while a packet is dragged"}'
+    - '// @input SceneObject digSpot {"hint":"Chalk-X dig spot shown in planting mode"}'
+    - '// @input SceneObject offViewArrow {"hint":"Small arrow at the near edge of the bed pointing at off-view targets"}'
+    - '// @input AssignableType_1 seedPackets {"hint":"Seed packet row (UI module)"}'
+    - '// @input AssignableType_2 monthSlider {"hint":"May→Aug slider (UI module)"}'
+    - '// @input AssignableType_3 plantIt {"hint":"Plant it button (UI module)"}'
+    - '// @input AssignableType_4 guidance {"hint":"Warning line, dig spot line + Done, planted message (UI module)"}'
+    - '// @input Asset.Material overlayMaterial {"hint":"Unlit, transparent, two-sided base material cloned for rings, shade, X, tick, arrow, ghost, dim"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA;\">Assets (swap freely)</span>"}'
+    - '// @ui {"widget":"group_start", "label":"Assets"}'
+    - '// @input Asset.ObjectPrefab tomatoModel {"hint":"Tomato plant model, August size (61 × 122 × 61 cm)"}'
+    - '// @input Asset.ObjectPrefab zucchiniModel {"hint":"Zucchini plant model, August size (76 × 61 × 76 cm)"}'
+    - '// @input Asset.ObjectPrefab basilModel {"hint":"Basil plant model, August size (61 × 46 × 61 cm)"}'
+    - '// @input Asset.ObjectPrefab lettuceModel {"hint":"Lettuce plant model, August size (20 × 15 × 20 cm)"}'
+    - '// @input Asset.AudioTrackAsset softChime {"hint":"Soft chime: next dig spot, off-view warning"}'
+    - '// @input Asset.AudioTrackAsset successChime {"hint":"Gentle success chime: bed planted"}'
+    - '// @input Asset.AudioTrackAsset pickupTick {"hint":"Soft tick when a packet or plant is picked up"}'
+    - '// @input Asset.AudioTrackAsset dropTick {"hint":"Soft tick when a seedling is set down"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA;\">Settings</span>"}'
+    - '// @ui {"widget":"group_start", "label":"Settings"}'
+    - '// @input float ringHoldSeconds = 2 {"hint":"Seconds a new seedling keeps its spacing ring in May/Jun before it fades", "widget":"slider", "min":0, "max":6, "step":0.1}'
+    - '// @input float crowdingThresholdCm = 5 {"hint":"August footprints must overlap by more than this (cm) to count as crowding", "widget":"slider", "min":0, "max":20, "step":0.5}'
+    - '// @input vec4 shadeColor = "{0.80,0.72,1.0,0.42}" {"hint":"Shade patch colour — light lavender, semi-transparent (dark vanishes on Specs)", "widget":"color"}'
+    - '// @input vec4 dimColor = "{0.34,0.42,0.32,0.5}" {"hint":"Plant colour while dimmed in planting mode", "widget":"color"}'
+    - '// @input float sfxVolume = 0.8 {"hint":"Volume of every sound cue", "widget":"slider", "min":0, "max":1, "step":0.05}'
+    - '// @input bool seatPlotAtUser = true {"hint":"At start, seat PlotRoot under the user: x/z + heading from the camera, floor under their feet"}'
+    - "// @input float eyeHeightCm = 160 {\"hint\":\"Assumed standing eye height (cm) when the world origin is the user's eyes (on device)\", \"widget\":\"slider\", \"min\":120, \"max\":200, \"step\":1}"
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA;\">Debug</span>"}'
+    - '// @ui {"widget":"group_start", "label":"Debug"}'
+    - '// @input bool debugColliders {"hint":"Wireframe every collider (restart preview after toggling)"}'
+    - "// @input bool demoLayoutOnStart {\"hint\":\"Plant the brief's demo set (2 tomatoes, 1 zucchini, 3 basil, 4 lettuce) shortly after start — for demos and screenshots\"}"
+    - '// @input float demoStartMonth = 3 {"hint":"Month the demo layout jumps to (0 = May … 3 = Aug)", "widget":"slider", "min":0, "max":3, "step":0.05}'
+    - '// @ui {"widget":"group_end"}'
