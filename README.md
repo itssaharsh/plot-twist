@@ -4,7 +4,7 @@ A Lens for SPECS for first-time vegetable gardeners. You stand at your new raise
 
 ![The bed in August, in Lens Studio's SPECS preview](docs/august.jpg)
 
-**Demo video:** _YouTube link_
+**Demo video:** https://youtu.be/HCjtCzn69nY
 
 ## The moment
 
