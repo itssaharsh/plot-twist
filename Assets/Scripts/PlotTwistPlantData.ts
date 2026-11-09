@@ -44,7 +44,7 @@ export const PLANT_SPECS: Record<PlantType, PlantSpec> = {
     augHeightCm: 61,
     augFootprintCm: 76,
     packetSpacing: "space 30 in",
-    plantingLine: "Zucchini · seed 2.5 cm deep",
+    plantingLine: "Zucchini · seed 1.3 cm deep",
     castsShade: true,
   },
   Basil: {

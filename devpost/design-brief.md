@@ -43,7 +43,7 @@ From extension-service numbers. The August footprint is the recommended spacing.
 | Plant | August height | August footprint | Packet spacing | Planting line |
 |---|---|---|---|---|
 | Tomato | 122 cm | 61 cm across | 24 in (default) | "Tomato · plant at soil level" |
-| Zucchini | 61 cm | 76 cm across | 30 in (default) | "Zucchini · seed 2.5 cm deep" (default) |
+| Zucchini | 61 cm | 76 cm across | 30 in (default) | "Zucchini · seed 1.3 cm deep" (changed after the build: Clemson HGIC says sow ½ in deep) |
 | Basil | 46 cm | 61 cm across | 24 in (default) | "Basil · plant at soil level" (default) |
 | Lettuce | 15 cm | 20 cm across | 8 in (default) | "Lettuce · seed 0.6 cm deep" |
 

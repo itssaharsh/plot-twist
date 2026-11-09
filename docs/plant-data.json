@@ -1,0 +1,232 @@
+{
+ "about": "Sourced numbers behind Plot Twist. August footprint = the extension service's recommended in-row spacing (spacing is set so neighbours just touch at maturity).",
+ "crops": [
+  {
+   "name": "indeterminate tomato",
+   "spacing_cm": 61,
+   "height_cm": 122,
+   "height_range_cm": [
+    91,
+    152
+   ],
+   "days_to_harvest": 65,
+   "days_basis": "transplant",
+   "sun": "full sun (UMD: at least 6 h/day, prefers 8-10 h)",
+   "afternoon_shade_helps": false,
+   "seed_depth_cm": 0.64,
+   "usually": "transplant",
+   "sources": [
+    {
+     "field": "spacing",
+     "url": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/growing-tomatoes",
+     "quote": "Allow two to three feet in all directions between vining plants."
+    },
+    {
+     "field": "spacing (alt)",
+     "url": "https://extension.umd.edu/resource/growing-tomatoes-home-garden",
+     "quote": "18\u201d-36\u201d in rows x 48\u201d-60\u201d between rows."
+    },
+    {
+     "field": "height",
+     "url": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/growing-tomatoes",
+     "quote": "They grow to three to five feet long, sometimes more."
+    },
+    {
+     "field": "days",
+     "url": "https://extension.umd.edu/resource/growing-tomatoes-home-garden",
+     "quote": "65 - 90 from transplant."
+    },
+    {
+     "field": "sun",
+     "url": "https://extension.umd.edu/resource/growing-tomatoes-home-garden",
+     "quote": "Full sun requires direct light at least 6 hours/day; prefers 8 - 10 hours/day."
+    },
+    {
+     "field": "seed depth / transplant",
+     "url": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/growing-tomatoes",
+     "quote": "Plant seeds one-fourth inch deep in flats ... Start tomatoes from seeds indoors, five to six weeks before planting outside."
+    }
+   ]
+  },
+  {
+   "name": "zucchini (summer squash)",
+   "spacing_cm": 76,
+   "height_cm": 61,
+   "height_range_cm": [
+    30,
+    91
+   ],
+   "days_to_harvest": 50,
+   "days_basis": "transplant",
+   "sun": "full sun",
+   "afternoon_shade_helps": false,
+   "seed_depth_cm": 1.27,
+   "usually": "direct-sow",
+   "sources": [
+    {
+     "field": "spacing",
+     "url": "https://extension.umd.edu/resource/growing-summer-squash-zucchini-home-garden",
+     "quote": "single plants 2\u2019- 3\u2019 in-row x 3\u2019- 5\u2019 between rows; Hills (two to three plants per hill) 3\u2019- 4\u2019 in-row x 4\u2019- 6\u2019 between rows."
+    },
+    {
+     "field": "spacing (alt)",
+     "url": "https://hgic.clemson.edu/factsheet/summer-squash/",
+     "quote": "Sow seeds 4 to 6 inches apart in the row, then thin to 12 to 15 inches apart. Transplants go about 15 inches apart."
+    },
+    {
+     "field": "height",
+     "url": "https://plants.ces.ncsu.edu/plants/cucurbita-pepo/",
+     "quote": "Height: 1 ft. 0 in. - 3 ft. 0 in.; Width: 2 ft. 0 in. - 25 ft. 0 in."
+    },
+    {
+     "field": "days",
+     "url": "https://extension.umd.edu/resource/growing-summer-squash-zucchini-home-garden",
+     "quote": "Days to maturity: 50 - 65 from transplant."
+    },
+    {
+     "field": "days (alt, seed)",
+     "url": "https://hgic.clemson.edu/factsheet/summer-squash/",
+     "quote": "about 55 days after planting"
+    },
+    {
+     "field": "sun",
+     "url": "https://hgic.clemson.edu/factsheet/summer-squash/",
+     "quote": "Full sun."
+    },
+    {
+     "field": "seed depth / method",
+     "url": "https://hgic.clemson.edu/factsheet/summer-squash/",
+     "quote": "Plant the seeds 1/2 inch deep; can be planted from seed or transplants."
+    },
+    {
+     "field": "direct sow",
+     "url": "https://extension.umd.edu/resource/growing-summer-squash-zucchini-home-garden",
+     "quote": "Sow seed directly into the garden after the danger of frost has passed and soil has warmed."
+    }
+   ]
+  },
+  {
+   "name": "sweet basil",
+   "spacing_cm": 61,
+   "height_cm": 46,
+   "height_range_cm": [
+    10,
+    91
+   ],
+   "days_to_harvest": null,
+   "days_basis": null,
+   "sun": "full sun (6+ h); Clemson: grows reasonably well in part sun (6 h)",
+   "afternoon_shade_helps": false,
+   "seed_depth_cm": 0.64,
+   "usually": "transplant",
+   "sources": [
+    {
+     "field": "spacing",
+     "url": "https://hgic.clemson.edu/factsheet/basil/",
+     "quote": "With a spacing of 2 feet between plants and 3 feet between rows"
+    },
+    {
+     "field": "spacing (agrees)",
+     "url": "https://extension.illinois.edu/blogs/flowers-fruits-and-frass/2020-05-13-growing-basil-your-backyard",
+     "quote": "Space plants at least 2 feet apart."
+    },
+    {
+     "field": "height",
+     "url": "https://extension.umd.edu/resource/basil",
+     "quote": "annual herb that matures about 18 inches tall"
+    },
+    {
+     "field": "height/spread range",
+     "url": "https://plants.ces.ncsu.edu/plants/ocimum-basilicum/",
+     "quote": "Height: 0 ft. 4 in. - 3 ft. 0 in.; Width: 0 ft. 4 in. - 1 ft. 2 in."
+    },
+    {
+     "field": "sun",
+     "url": "https://extension.umd.edu/resource/basil",
+     "quote": "Plant basil in a full sun location, where it receives 6 or more hours of direct sun daily in summer."
+    },
+    {
+     "field": "sun (alt)",
+     "url": "https://hgic.clemson.edu/factsheet/basil/",
+     "quote": "Although basil prefers full sun, it grows reasonably well in part-sun (six hours of sun per day)."
+    },
+    {
+     "field": "seed depth / transplant",
+     "url": "https://hgic.clemson.edu/factsheet/basil/",
+     "quote": "Plant basil seeds 1/4-inch deep; start seeds indoors four to six weeks before outdoor planting."
+    },
+    {
+     "field": "direct sow possible",
+     "url": "https://extension.illinois.edu/blogs/flowers-fruits-and-frass/2020-05-13-growing-basil-your-backyard",
+     "quote": "can also be directly seeded in the garden after the threat of spring frost has passed"
+    }
+   ]
+  },
+  {
+   "name": "leaf lettuce",
+   "spacing_cm": 20,
+   "height_cm": 15,
+   "height_range_cm": [
+    13,
+    15
+   ],
+   "days_to_harvest": 40,
+   "days_basis": "seed",
+   "sun": "tolerates partial shade (4-6 h direct light/day); full sun fine in spring/fall",
+   "afternoon_shade_helps": true,
+   "seed_depth_cm": 0.64,
+   "usually": "direct-sow",
+   "sources": [
+    {
+     "field": "spacing",
+     "url": "https://extension.umd.edu/resource/growing-lettuce-home-garden",
+     "quote": "Leaf, cos, or butterhead, 4\"- 10\" in-row x 12\"- 24\" between rows"
+    },
+    {
+     "field": "spacing (alt)",
+     "url": "https://hgic.clemson.edu/factsheet/lettuce/",
+     "quote": "plants 6 to 10 inches apart in the row"
+    },
+    {
+     "field": "days",
+     "url": "https://extension.umd.edu/resource/growing-lettuce-home-garden",
+     "quote": "Days to maturity: 40 - 80, depending on the type."
+    },
+    {
+     "field": "days (alt)",
+     "url": "https://hgic.clemson.edu/factsheet/lettuce/",
+     "quote": "about 75 days after planting (leaf lettuce)"
+    },
+    {
+     "field": "sun",
+     "url": "https://extension.umd.edu/resource/growing-lettuce-home-garden",
+     "quote": "Tolerates partial shade (4-6 hours of direct light/day) but grows well with full sun in spring and fall."
+    },
+    {
+     "field": "afternoon shade / bolting",
+     "url": "https://extension.umd.edu/resource/growing-lettuce-home-garden",
+     "quote": "Increasing day-length and high summer temperatures usually cause seedstalk formation (bolting) and bitter flavor. ... use tall crops and trellises to protect the late spring lettuce plantings from direct afternoon sun. Shade cloth can help to protect summer-grown lettuce from direct sunlight and high temperatures."
+    },
+    {
+     "field": "height",
+     "url": "https://hgic.clemson.edu/factsheet/lettuce/",
+     "quote": "harvested when plants are 5 to 6 inches tall"
+    },
+    {
+     "field": "seed depth / direct sow",
+     "url": "https://hgic.clemson.edu/factsheet/lettuce/",
+     "quote": "seed one-quarter inch deep; leaf lettuce is direct-seeded"
+    }
+   ]
+  }
+ ],
+ "sun": {
+  "lat": 40,
+  "date": "Aug 15",
+  "local_solar_time": "16:00",
+  "elevation_deg": 32.0,
+  "azimuth_deg": 261.7,
+  "shadow_len_per_cm_height": 1.6,
+  "source": "https://gml.noaa.gov/grad/solcalc/solareqns.PDF"
+ }
+}

@@ -48,7 +48,7 @@ export class PlotTwistDemoFullRunScenario extends Scenario {
     const cursorOn = hand.showCursor(firstPacket)
     log(`demo: SIK pinch cursor ${cursorOn ? "on" : "unavailable"}`)
     try {
-      await sleep(1500)
+      await sleep(4500)
 
       // 1. Plant the demo set, one packet drag per plant.
       const names: string[] = []
@@ -61,7 +61,7 @@ export class PlotTwistDemoFullRunScenario extends Scenario {
         await hand.dragToPoint(hand.interactable(packetName), main.bedToWorld(s.x, SOIL_Y, s.z), PLANT_DRAG_MS, {
           moveFraction: 0.85,
           ease: true,
-          settleMs: 0,
+          settleMs: 120,
         })
         const plants = main.getPlants()
         const name = plants.length > before ? plants[plants.length - 1].name : "(nothing planted)"
@@ -77,7 +77,7 @@ export class PlotTwistDemoFullRunScenario extends Scenario {
       await hand.glideCursorTo(mayEnd, 700)
       await hand.dragBy(hand.interactable("MonthSlider"), right.uniformScale(SLIDER_TRAVEL_CM), SLIDER_DRAG_MS, {
         moveFraction: 0.97,
-        settleMs: 0,
+        settleMs: 120,
       })
       log(`demo: month ${main.getMonth().toFixed(2)}, warning ${JSON.stringify(main.getActiveWarning())}`)
       await sleep(4000)
@@ -89,19 +89,19 @@ export class PlotTwistDemoFullRunScenario extends Scenario {
       await hand.dragToPoint(hand.interactable(crowded), main.bedToWorld(SUNNY_SPOT.x, SOIL_Y, SUNNY_SPOT.z), MOVE_BASIL_MS, {
         moveFraction: 0.85,
         ease: true,
-        settleMs: 0,
+        settleMs: 120,
       })
       log(`demo: moved ${crowded}; next warning ${JSON.stringify(main.getActiveWarning())}`)
       await sleep(3000)
 
       // 4. Plant it: one dig spot at a time, Done on each (~1.5 s per spot).
       await hand.glideCursorTo(sceneObject("PlantItButton").getTransform().getWorldPosition(), 700)
-      await hand.tap("PlantItButton", 0)
+      await hand.tap("PlantItButton", 400)
       for (let i = 0; i < names.length; i++) {
         await sleep(PER_SPOT_MS - 500)
         const done = sceneObject("DoneButton").getTransform().getWorldPosition()
         await hand.glideCursorTo(done, 300)
-        await hand.tap("DoneButton", 0)
+        await hand.tap("DoneButton", 120)
         log(`demo: dig spot ${i + 1}/${names.length} done`)
       }
       await sleep(3000) // hold on "Your bed is planted"
@@ -111,7 +111,7 @@ export class PlotTwistDemoFullRunScenario extends Scenario {
       await hand.glideCursorTo(mayEnd2, 700)
       await hand.dragBy(hand.interactable("MonthSlider"), right.uniformScale(SLIDER_TRAVEL_CM), SLIDER_DRAG_MS, {
         moveFraction: 0.97,
-        settleMs: 0,
+        settleMs: 120,
       })
       log(`demo: final month ${main.getMonth().toFixed(2)}`)
       await sleep(1500)
