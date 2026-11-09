@@ -19,7 +19,7 @@ import {Interactable} from "SpectaclesInteractionKit.lspkg/Components/Interactio
 import {DragInteractorEvent, InteractorEvent} from "SpectaclesInteractionKit.lspkg/Core/Interactor/InteractorEvent"
 import {ColliderUtils} from "SpectaclesInteractionKit.lspkg/Utils/ColliderUtils"
 import {PlantPlan, pointInRect} from "./PlotTwistGeometry"
-import {buildRing, buildTick} from "./PlotTwistMeshFactory"
+import {buildPost, buildRing, buildTick} from "./PlotTwistMeshFactory"
 import {BED, JULY, PlantType, SEEDLING_CM, augSize, sizeAt} from "./PlotTwistPlantData"
 import {SoilDragTracker} from "./PlotTwistSoilDrag"
 
@@ -31,6 +31,10 @@ const RING_COLOR = new vec4(0.92, 0.97, 0.86, 0.7)
 const GHOST_RING_COLOR = new vec4(0.85, 1.0, 0.85, 0.45)
 const GHOST_COLOR = new vec4(0.7, 1.0, 0.72, 0.45)
 const TICK_COLOR = new vec4(0.45, 0.95, 0.5, 1.0)
+/** Amber warning ring: a wide band just outside the August footprint so it reads from the foot of the bed. */
+export const WARNING_AMBER = new vec4(1.0, 0.74, 0.18, 1.0)
+const WARNING_RING_GAP_CM = 0.5
+const WARNING_RING_WIDTH_CM = 6
 
 export interface PlantEntity {
   name: string
@@ -96,6 +100,7 @@ export class PlotTwistGarden {
     private dimMaterial: Material,
     private ringHoldSeconds: number,
     private callbacks: GardenCallbacks,
+    private stakeMaterial: Material | null = null,
   ) {
     this.ghostRoot.enabled = false
   }
@@ -138,6 +143,7 @@ export class PlotTwistGarden {
     instance.getTransform().setLocalPosition(new vec3(ip.x - c.x, ip.y - bounds.min.y, ip.z - c.z))
 
     const rmvs = this.collectRmvs(instance)
+    if (type === "Tomato" && this.stakeMaterial) rmvs.push(this.addStake(visualWrap, bounds))
     const originalMats = rmvs.map((r) => r.mainMaterial)
 
     // Collider first (on the unit-scale root), then the Interactable that discovers it.
@@ -153,8 +159,9 @@ export class PlotTwistGarden {
     spacingRing.enabled = false
 
     const warningMat = this.overlayMaterial.clone()
-    warningMat.mainPass.baseColor = new vec4(1, 0.72, 0.2, 1)
-    const warningRing = this.makeFlat(root, "WarningRing", buildRing(aug.footprintCm / 2 + 1, aug.footprintCm / 2 + 3.2), warningMat, 0.9)
+    warningMat.mainPass.baseColor = WARNING_AMBER
+    const ringIn = aug.footprintCm / 2 + WARNING_RING_GAP_CM
+    const warningRing = this.makeFlat(root, "WarningRing", buildRing(ringIn, ringIn + WARNING_RING_WIDTH_CM), warningMat, 1.0)
     warningRing.enabled = false
 
     const tickMat = this.overlayMaterial.clone()
@@ -349,10 +356,10 @@ export class PlotTwistGarden {
       }
       this.callbacks.onPlantMoved(p)
     }
-    const end = (_ev: DragInteractorEvent) => {
+    const end = (ev: DragInteractorEvent) => {
       if (!p.dragging) return
       p.dragging = false
-      const q = tracker.last
+      const q = tracker.finish(ev as InteractorEvent)
       if (q && pointInRect({x: q.x, z: q.z})) {
         this.setPos(p, q.x, q.z)
       } else {
@@ -376,6 +383,21 @@ export class PlotTwistGarden {
     rmv.mesh = mesh
     rmv.mainMaterial = mat
     return so
+  }
+
+  /**
+   * Tomatoes grow up a wooden stake. The stake sits in the growth wrapper (so it grows with the
+   * plant) beside the main stem, and stays inside the plant's August bounds (95 % of its height).
+   */
+  private addStake(visualWrap: SceneObject, nb: NativeBounds): RenderMeshVisual {
+    const size = nb.max.sub(nb.min)
+    const stake = global.scene.createSceneObject("Stake")
+    stake.setParent(visualWrap)
+    stake.getTransform().setLocalPosition(new vec3(size.x * 0.08, 0, size.z * 0.06))
+    const rmv = stake.createComponent("Component.RenderMeshVisual") as RenderMeshVisual
+    rmv.mesh = buildPost(Math.max(1.5, size.x * 0.036), size.y * 0.95)
+    rmv.mainMaterial = this.stakeMaterial as Material
+    return rmv
   }
 
   private collectRmvs(so: SceneObject, out: RenderMeshVisual[] = []): RenderMeshVisual[] {

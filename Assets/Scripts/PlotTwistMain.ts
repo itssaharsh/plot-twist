@@ -104,6 +104,10 @@ export class PlotTwistMain extends BaseScriptComponent {
   @hint("Lettuce plant model, August size (20 × 15 × 20 cm)")
   lettuceModel!: ObjectPrefab
   @input
+  @allowUndefined
+  @hint("Opaque wood material for the tomato stakes (optional — no stake when empty)")
+  stakeMaterial: Material
+  @input
   @hint("Soft chime: next dig spot, off-view warning")
   softChime!: AudioTrackAsset
   @input
@@ -174,6 +178,11 @@ export class PlotTwistMain extends BaseScriptComponent {
   private ready = false
   private month = 0
   private plantingMode = false
+  /** After the last Done: the bed is in the ground; the slider is back so you can look ahead again. */
+  private bedPlanted = false
+  /** First-use hints: each one retires for good once its action has happened. */
+  private packetHintDone = false
+  private sliderHintDone = false
   private shadeDirty = true
   private seatUntil = 0
   private seatLogged = false
@@ -223,6 +232,11 @@ export class PlotTwistMain extends BaseScriptComponent {
     return this.plantingMode
   }
 
+  /** True after the last Done ("Your bed is planted"); the slider is usable again. */
+  isBedPlanted(): boolean {
+    return this.bedPlanted
+  }
+
   /** -1 when not planting; 0-based index of the lit dig spot; = plant count once the bed is planted. */
   getDigSpotIndex(): number {
     return this.ready ? this.planting.digSpotIndex : -1
@@ -258,6 +272,8 @@ export class PlotTwistMain extends BaseScriptComponent {
     digSpotVisible: boolean
     digSpotLine: string
     plantedVisible: boolean
+    packetHintVisible: boolean
+    sliderHintVisible: boolean
   } {
     return {
       packetsVisible: this.seedPackets.getSceneObject().enabled,
@@ -268,6 +284,8 @@ export class PlotTwistMain extends BaseScriptComponent {
       digSpotVisible: this.digSpot.enabled,
       digSpotLine: this.guidance.getDigSpotText(),
       plantedVisible: this.guidance.isPlantedVisible(),
+      packetHintVisible: this.seedPackets.isHintVisible(),
+      sliderHintVisible: this.monthSlider.isHintVisible(),
     }
   }
 
@@ -296,6 +314,7 @@ export class PlotTwistMain extends BaseScriptComponent {
     const p = this.garden.plantAt(type, x, z, getTime())
     if (!p) return null
     this.shadeDirty = true
+    this.updateHints()
     return p.name
   }
 
@@ -373,6 +392,9 @@ export class PlotTwistMain extends BaseScriptComponent {
     this.garden.removeAll()
     this.shade.clear()
     this.plantingMode = false
+    this.bedPlanted = false
+    this.packetHintDone = false
+    this.sliderHintDone = false
     this.garden.setDimmed(false)
     this.garden.setInteractionEnabled(true)
     this.seedPackets.setVisible(true)
@@ -456,6 +478,7 @@ export class PlotTwistMain extends BaseScriptComponent {
           if (moved) this.audio.play("drop")
         },
       },
+      this.stakeMaterial ? this.stakeMaterial : null,
     )
     this.shade = new PlotTwistShade(this.shadeRoot, overlay, this.shadeColor)
     this.pointer = new PlotTwistPointer(this.offViewArrow, plotT, this.camera, overlay, () => this.audio.play("soft"))
@@ -495,6 +518,8 @@ export class PlotTwistMain extends BaseScriptComponent {
   private applyMonth(m: number): void {
     this.month = Math.max(0, Math.min(MONTH_MAX, m))
     if (!this.ready) return
+    if (this.bedPlanted && this.month > 0.02) this.guidance.hidePlanted()
+    this.updateHints()
     if (!this.plantingMode) this.garden.setDisplayMonth(this.month)
     this.shadeDirty = true
   }
@@ -519,7 +544,7 @@ export class PlotTwistMain extends BaseScriptComponent {
 
   private onPacketDragEnd(e: PacketDragEvent): void {
     if (!this.packetTracker) return
-    const q = this.packetTracker.last
+    const q = this.packetTracker.finish(e.event)
     this.packetTracker = null
     this.garden.hideGhost()
     if (q && pointInRect({x: q.x, z: q.z})) {
@@ -558,6 +583,34 @@ export class PlotTwistMain extends BaseScriptComponent {
   private onDone(): void {
     if (!this.ready || !this.plantingMode) return
     this.planting.done()
+    if (this.planting.finished) this.finishPlanting()
+  }
+
+  /**
+   * The last spot is dug: "Your bed is planted" shows (Planting owns it). The bed is shown as it is
+   * today — undimmed May seedlings — and the slider comes back so you can look ahead to August
+   * again. Packets and "Plant it" stay hidden; the plants are in the ground, so they no longer move.
+   */
+  private finishPlanting(): void {
+    this.plantingMode = false
+    this.bedPlanted = true
+    this.garden.setDimmed(false)
+    this.garden.setInteractionEnabled(false)
+    this.monthSlider.setMonth(0)
+    this.monthSlider.setVisible(true)
+    this.applyMonth(0)
+    this.shadeDirty = true
+  }
+
+  /** First-use hints: "Grab a packet" until the first plant; "Drag to August" until the slider moves. */
+  private updateHints(): void {
+    const count = this.garden.count
+    if (count > 0) this.packetHintDone = true
+    if (count > 0 && this.month > 0.02) this.sliderHintDone = true
+    this.seedPackets.setHintVisible(!this.packetHintDone && !this.plantingMode)
+    this.monthSlider.setHintVisible(
+      count > 0 && !this.sliderHintDone && !this.plantingMode && !this.bedPlanted && this.month <= 0.02,
+    )
   }
 
   // ── Frame update ─────────────────────────────────────────────────────────
@@ -582,6 +635,7 @@ export class PlotTwistMain extends BaseScriptComponent {
         print(`[PlotTwist] bed seated. camera world=${camT.getWorldPosition().toString()}; PlotRoot world=${plotT.getWorldPosition().toString()}`)
       }
     }
+    this.updateHints()
     this.garden.update(now, !this.plantingMode)
     if (this.shadeDirty) {
       this.shadeDirty = false

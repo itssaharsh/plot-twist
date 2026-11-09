@@ -1,0 +1,78 @@
+- !<AssetImportMetadata/a44e1e29-9cf3-4a1d-9e13-e3597e5af950>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 636ecf54-3acf-475b-9b81-b26a27f2358f
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 636ecf54-3acf-475b-9b81-b26a27f2358f
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 6961d032-2ca4-455b-95cf-7b3a3b7ca41d
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/6961d032-2ca4-455b-95cf-7b3a3b7ca41d>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: e7c29fd5-a275-4abd-8a62-2992101005d4
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    cellCm: false
+    gridColor: false
+    gridMaterial: false
+    lineWidthCm: false
+    outerLengthCm: false
+    outerWidthCm: false
+    rimThicknessCm: false
+    soilMaterial: false
+    soilTopY: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - soilMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      gridMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      outerWidthCm: !<float> 122.000000
+      outerLengthCm: !<float> 244.000000
+      rimThicknessCm: !<float> 4.000000
+      soilTopY: !<float> 30.000000
+      cellCm: 30.480000
+      lineWidthCm: 1.100000
+      gridColor: !<Vec4> {x: 1.000000, y: 0.980000, z: 0.930000, w: 0.550000}
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA;\">PlotTwistSoilSurface – textured soil top + chalk square-foot grid</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"group_start", "label":"Assets"}'
+    - '// @input Asset.Material soilMaterial {"hint":"Soil material (its baseTex is the furrowed soil texture)"}'
+    - '// @input Asset.Material gridMaterial {"hint":"Unlit overlay material, cloned and tinted for the chalk grid"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"group_start", "label":"Bed size"}'
+    - '// @input float outerWidthCm = 122 {"hint":"Outer width of the bed in cm (4 ft)"}'
+    - '// @input float outerLengthCm = 244 {"hint":"Outer length of the bed in cm (8 ft)"}'
+    - '// @input float rimThicknessCm = 4 {"hint":"Rim plank thickness in cm"}'
+    - '// @input float soilTopY = 30 {"hint":"Soil top height above the floor in cm"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"group_start", "label":"Grid"}'
+    - '// @input float cellCm = 30.48 {"hint":"Grid square size in cm (1 ft = 30.48)", "widget":"slider", "min":10, "max":60, "step":0.5}'
+    - '// @input float lineWidthCm = 1.1 {"hint":"Chalk line width in cm", "widget":"slider", "min":0.3, "max":3, "step":0.1}'
+    - '// @input vec4 gridColor = "{1.0,0.98,0.93,0.55}" {"hint":"Chalk line colour (alpha = how faint)", "widget":"color"}'
+    - '// @ui {"widget":"group_end"}'

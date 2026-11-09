@@ -29,6 +29,8 @@
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
     gapCm: false
+    hintText: false
+    hintTextSize: false
     packetHeightCm: false
     packetWidthCm: false
     textColor: false
@@ -47,6 +49,8 @@
       gapCm: !<float> 2.000000
       viewingDistanceCm: !<float> 130.000000
       textColor: !<Vec4> {x: 1.000000, y: 0.960000, z: 0.860000, w: 1.000000}
+      hintText: Grab a packet
+      hintTextSize: !<float> 170.000000
   ScriptTypes:
     -
       {}
@@ -60,4 +64,6 @@
     - '// @input float gapCm = 2 {"hint":"Gap between packets in cm", "widget":"slider", "min":0, "max":6, "step":0.1}'
     - '// @input float viewingDistanceCm = 150 {"hint":"Typical viewing distance (cm) used to scale the packet text", "widget":"slider", "min":60, "max":250, "step":5}'
     - '// @input vec4 textColor = "{1,0.96,0.86,1}" {"hint":"Packet text colour (keep it light)", "widget":"color"}'
+    - '// @input string hintText = "Grab a packet" {"hint":"First-use hint shown above the packets until the first plant is placed"}'
+    - '// @input float hintTextSize = 170 {"hint":"Hint text size (Text.size; 190 ≈ 3 cm capitals)", "widget":"slider", "min":80, "max":300, "step":5}'
     - '// @ui {"widget":"group_end"}'

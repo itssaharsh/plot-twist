@@ -54,9 +54,9 @@ export class PlotTwistGuidanceUI extends BaseScriptComponent {
   textColor: vec4 = new vec4(1, 0.96, 0.86, 1)
 
   @input
-  @widget(new SliderWidget(100, 320, 5))
-  @hint("Warning / dig-spot line text size (Text.size). 190 ≈ 3 cm capital letters, readable from the foot of the bed")
-  lineTextSize: number = 190
+  @widget(new SliderWidget(100, 400, 5))
+  @hint("Warning / dig-spot line text size (Text.size). 190 ≈ 3 cm capitals; 265 ≈ 4.2 cm capitals, readable at 2 m")
+  lineTextSize: number = 265
 
   @input
   @hint("Message shown after the last dig spot")
@@ -144,8 +144,14 @@ export class PlotTwistGuidanceUI extends BaseScriptComponent {
     this.warningText.text = text
   }
 
-  setWarningLinePosition(world: vec3): void {
+  /**
+   * Place the warning line at `world`. `grow` keeps the (wide) line over the bed: -1 = text
+   * starts at the anchor and runs right, +1 = ends at the anchor and runs left, 0 = centred.
+   */
+  setWarningLinePosition(world: vec3, grow: number = 0): void {
     this.warningLine.getTransform().setWorldPosition(world)
+    const a = grow < 0 ? HorizontalAlignment.Left : grow > 0 ? HorizontalAlignment.Right : HorizontalAlignment.Center
+    if (this.warningText.horizontalAlignment !== a) this.warningText.horizontalAlignment = a
   }
 
   fadeOutWarningLine(seconds: number): void {
@@ -225,7 +231,8 @@ export class PlotTwistGuidanceUI extends BaseScriptComponent {
     t.text = text
     t.size = size
     ;(t as Text & {weight?: number}).weight = 700
-    t.depthTest = true
+    // Drawn on top: a guidance line must stay readable even behind tall August leaves.
+    t.depthTest = false
     t.horizontalAlignment = HorizontalAlignment.Center
     t.verticalAlignment = VerticalAlignment.Center
     t.horizontalOverflow = HorizontalOverflow.Overflow

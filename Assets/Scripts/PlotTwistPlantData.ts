@@ -119,7 +119,7 @@ export const BED = {
   floorY: -160,
   soilY: -130,
   rimThicknessCm: 4,
-  rimAboveSoilCm: 3,
+  rimAboveSoilCm: 7,
 }
 
 export interface Rect {

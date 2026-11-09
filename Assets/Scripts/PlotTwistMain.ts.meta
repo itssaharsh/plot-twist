@@ -55,6 +55,7 @@
     shadeColor: false
     shadeRoot: false
     softChime: false
+    stakeMaterial: false
     successChime: false
     tomatoModel: false
     zucchiniModel: false
@@ -83,6 +84,7 @@
       zucchiniModel: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
       basilModel: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
       lettuceModel: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+      stakeMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
       softChime: !<reference.AudioTrackAsset> 00000000-0000-0000-0000-000000000000
       successChime: !<reference.AudioTrackAsset> 00000000-0000-0000-0000-000000000000
       pickupTick: !<reference.AudioTrackAsset> 00000000-0000-0000-0000-000000000000
@@ -125,6 +127,7 @@
     - '// @input Asset.ObjectPrefab zucchiniModel {"hint":"Zucchini plant model, August size (76 × 61 × 76 cm)"}'
     - '// @input Asset.ObjectPrefab basilModel {"hint":"Basil plant model, August size (61 × 46 × 61 cm)"}'
     - '// @input Asset.ObjectPrefab lettuceModel {"hint":"Lettuce plant model, August size (20 × 15 × 20 cm)"}'
+    - '// @input Asset.Material stakeMaterial {"hint":"Opaque wood material for the tomato stakes (optional — no stake when empty)"}'
     - '// @input Asset.AudioTrackAsset softChime {"hint":"Soft chime: next dig spot, off-view warning"}'
     - '// @input Asset.AudioTrackAsset successChime {"hint":"Gentle success chime: bed planted"}'
     - '// @input Asset.AudioTrackAsset pickupTick {"hint":"Soft tick when a packet or plant is picked up"}'

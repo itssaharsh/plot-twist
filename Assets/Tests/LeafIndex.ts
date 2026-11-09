@@ -5,6 +5,7 @@ import {PlotTwistC2GrowScenario} from "./PlotTwistC2GrowScenario"
 import {PlotTwistC3CrowdingScenario} from "./PlotTwistC3CrowdingScenario"
 import {PlotTwistC4ShadeScenario} from "./PlotTwistC4ShadeScenario"
 import {PlotTwistC5PlantingScenario} from "./PlotTwistC5PlantingScenario"
+import {PlotTwistDemoFullRunScenario} from "./PlotTwistDemoFullRunScenario"
 
 /** Plot Twist LEAF scenarios — one per done criterion in devpost/design-brief.md. */
 @component
@@ -16,5 +17,7 @@ export class LeafIndex extends BaseScriptComponent {
     {id: "c3-crowding-warning", typename: PlotTwistC3CrowdingScenario.getTypeName()},
     {id: "c4-shade-patch", typename: PlotTwistC4ShadeScenario.getTypeName()},
     {id: "c5-planting-mode", typename: PlotTwistC5PlantingScenario.getTypeName()},
+    // Not a test: the whole experience performed slowly for an uncut screen recording.
+    {id: "demo-full-run", typename: PlotTwistDemoFullRunScenario.getTypeName()},
   ]
 }

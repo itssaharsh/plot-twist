@@ -4,7 +4,8 @@
  * Owns: a FlexLayout row of UIKit Buttons named `SeedPacket_Tomato`, `SeedPacket_Zucchini`,
  *       `SeedPacket_Basil`, `SeedPacket_Lettuce` (~14 × 20 cm, hover highlight from UIKit),
  *       each showing a small 3D picture of the plant, its name and its spacing.
- * API (Main → UI): setPacketModel(type, prefab) for the picture, setVisible(on).
+ * API (Main → UI): setPacketModel(type, prefab) for the picture, setVisible(on),
+ *       setHintVisible(on) for the first-use line "Grab a packet" above the row.
  * Events (UI → Main): onPacketDragStart / onPacketDragUpdate / onPacketDragEnd with the
  *       packet type + the SIK drag event. The packet itself never moves.
  * Must not: plant anything — Main turns the drag into a seedling.
@@ -68,9 +69,19 @@ export class PlotTwistSeedPacketsUI extends BaseScriptComponent {
   @widget(new ColorWidget())
   @hint("Packet text colour (keep it light)")
   textColor: vec4 = new vec4(1, 0.96, 0.86, 1)
+
+  @input
+  @hint("First-use hint shown above the packets until the first plant is placed")
+  hintText: string = "Grab a packet"
+
+  @input
+  @widget(new SliderWidget(80, 300, 5))
+  @hint("Hint text size (Text.size; 190 ≈ 3 cm capitals)")
+  hintTextSize: number = 170
   @ui.group_end
 
   private pictureSlots = new Map<PlantType, SceneObject>()
+  private hint!: SceneObject
   private _onDragStart = new Event<PacketDragEvent>()
   private _onDragUpdate = new Event<PacketDragEvent>()
   private _onDragEnd = new Event<PacketDragEvent>()
@@ -102,6 +113,30 @@ export class PlotTwistSeedPacketsUI extends BaseScriptComponent {
     const items: FlexItem[] = []
     for (const type of PLANT_TYPES) items.push(this.buildPacket(content, type, W, H))
     row.addItems(items)
+
+    // First-use hint: one short line just above the row of packets.
+    this.hint = this.obj(this.sceneObject, "PacketHint")
+    this.hint.getTransform().setLocalPosition(new vec3(0, H / 2 + 4.5, 0.3))
+    const ht = this.hint.createComponent("Component.Text") as Text
+    ht.text = this.hintText
+    ht.size = this.hintTextSize
+    ;(ht as Text & {weight?: number}).weight = 700
+    ht.depthTest = true
+    ht.horizontalAlignment = HorizontalAlignment.Center
+    ht.verticalAlignment = VerticalAlignment.Center
+    ht.horizontalOverflow = HorizontalOverflow.Overflow
+    ht.verticalOverflow = VerticalOverflow.Overflow
+    ht.layoutRect = Rect.create(-1, 1, -1, 1)
+    ht.textFill.color = this.textColor
+  }
+
+  /** Show / hide the "Grab a packet" first-use line. */
+  setHintVisible(on: boolean): void {
+    if (this.hint && this.hint.enabled !== on) this.hint.enabled = on
+  }
+
+  isHintVisible(): boolean {
+    return !!this.hint && this.hint.isEnabledInHierarchy
   }
 
   /** Put a small 3D picture of the plant on its packet. */

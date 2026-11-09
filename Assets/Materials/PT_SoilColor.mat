@@ -80,11 +80,11 @@
       value: 0
     baseColor:
       typeIdx: 5
-      value: {x: 0.400000, y: 0.250000, z: 0.140000, w: 1.000000}
+      value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     baseTex:
       typeIdx: 9
       value:
-        id: 14f6d4d2-43d6-49cf-b4dd-2c2bf4918fec
+        id: d0818620-2817-4876-b6c9-c05b6482598d
         sampler:
           filteringMode: Trilinear
           wrapModeU: Repeat

@@ -5,9 +5,9 @@
     - !<own> 0005641c-028d-459a-0000-000000014b4d
     - !<own> be26c04d-a077-41fd-9963-75a5b3927d0d
     - !<own> efa4a592-6788-4799-a2f8-7d8f361fe18d
-    - !<own> 1023c8c6-6065-41a0-87cc-91a99e635de7
     - !<own> 76539fba-ed41-4973-b488-97eb9be68813
     - !<own> 867acdcf-eecb-4b24-b736-06ea8a649ec3
+    - !<own> 38b550c6-61f1-4c72-a249-7119613be6c9
   layers: !<Layers/267ee9a7-aff2-4f9d-9a49-f71214747d03>
     userLayers:
       - id: 1
@@ -319,21 +319,6 @@
   ScriptTypes:
     "":
       {}
-- !<SceneObject/1023c8c6-6065-41a0-87cc-91a99e635de7>
-  PrefabRemaps:
-    []
-  Name: AiPreviewAgent Handler
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> 484df802-8291-446f-a5e1-1757e5eb58c6
 - !<RenderMeshVisual/108121bc-4e7f-452c-bb97-3cf0faca23ac>
   PrefabRemaps:
     []
@@ -464,6 +449,22 @@
     - !<own> 2903cf7d-5d59-4eb5-bd7d-79affd0bc720
   Components:
     []
+- !<ScriptComponent/1935ec88-9456-43c6-9d8b-96d864fa9ada>
+  PrefabRemaps:
+    []
+  Name: AgentInspectScript
+  Enabled: true
+  ScriptAsset: !<reference> 0b25079c-f5bf-4c6d-96c4-f43b89dfa213
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      {}
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/195761a1-653f-4059-a809-04cf8fc416f0>
   PrefabRemaps:
     []
@@ -639,6 +640,7 @@
     - !<own> b1175270-dd5d-4ccb-8555-e91d33884054
     - !<own> 84375e88-70e9-48af-9788-7cf02df7aa83
     - !<own> 45f3fb82-3261-4d89-b890-d3976680a381
+    - !<own> 6efa4ccd-2c76-4cd8-86c6-8fca873264b0
   Components:
     []
 - !<SceneObject/27e392bc-7239-4100-80c2-7fae0bee0f44>
@@ -780,6 +782,22 @@
     - !<own> 73c9562f-e6bd-4c0b-be6d-41b048123ece
   Components:
     []
+- !<SceneObject/38b550c6-61f1-4c72-a249-7119613be6c9>
+  PrefabRemaps:
+    []
+  Name: AiPreviewAgent Handler
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 1935ec88-9456-43c6-9d8b-96d864fa9ada
+    - !<own> d289bd18-2759-4be7-97ae-38e5c8194949
 - !<DeviceTracking/3b9ba96e-3726-4e0b-b970-e8770d63f0d3>
   PrefabRemaps:
     []
@@ -935,6 +953,36 @@
   Components:
     - !<own> d37d8011-2aa5-4d0d-9f50-c6c91151475a
     - !<own> 50fbcf0e-b89c-416e-b7c4-24a5fed0a1d9
+- !<ScriptComponent/427598f4-fda9-45fe-9915-5d4a7d5aea0f>
+  PrefabRemaps:
+    []
+  Name: PlotTwistSoilSurface
+  Enabled: true
+  ScriptAsset: !<reference> 636ecf54-3acf-475b-9b81-b26a27f2358f
+  ScriptInputsDefault:
+    outerWidthCm: true
+    outerLengthCm: true
+    rimThicknessCm: true
+    soilTopY: true
+    cellCm: true
+    lineWidthCm: true
+    gridColor: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      soilMaterial: !<reference.Material> 25708e87-6861-4abf-bc81-e4728e797cfd
+      gridMaterial: !<reference.Material> cc8c4d04-e86e-413f-947e-3a68453fafea
+      outerWidthCm: !<float> 122.000000
+      outerLengthCm: !<float> 244.000000
+      rimThicknessCm: !<float> 4.000000
+      soilTopY: !<float> 30.000000
+      cellCm: 30.480000
+      lineWidthCm: 1.100000
+      gridColor: !<Vec4> {x: 1.000000, y: 0.980000, z: 0.930000, w: 0.550000}
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/4302f517-0ec1-490f-9ce6-f9c5a5161d93>
   PrefabRemaps:
     []
@@ -1017,9 +1065,9 @@
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 16.500000, z: -120.000000}
+    Position: {x: 0.000000, y: 18.500000, z: -120.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 114.000000, y: 33.000000, z: 4.000000}
+    Scale: {x: 114.000000, y: 37.000000, z: 4.000000}
     HasSegmentScaleCompensation: false
   Children:
     []
@@ -1075,22 +1123,6 @@
   BlendNormals: false
   BlendShapes:
     {}
-- !<ScriptComponent/484df802-8291-446f-a5e1-1757e5eb58c6>
-  PrefabRemaps:
-    []
-  Name: AgentInspectScript
-  Enabled: true
-  ScriptAsset: !<reference> 0b25079c-f5bf-4c6d-96c4-f43b89dfa213
-  ScriptInputsDefault:
-    {}
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      {}
-  ScriptTypes:
-    "":
-      {}
 - !<RenderMeshVisual/48a5b1ef-7d01-4cc2-a0eb-0f581f42e4e7>
   PrefabRemaps:
     []
@@ -1461,6 +1493,21 @@
     - !<own> b414e0a7-dafe-4377-9d7b-032be808a0d5
   Components:
     []
+- !<SceneObject/6efa4ccd-2c76-4cd8-86c6-8fca873264b0>
+  PrefabRemaps:
+    []
+  Name: SoilSurface
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 427598f4-fda9-45fe-9915-5d4a7d5aea0f
 - !<SceneObject/6fae5468-f56a-4b5b-aaae-35d5d7ac4bb4>
   PrefabRemaps:
     []
@@ -1671,9 +1718,9 @@
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 16.500000, z: 120.000000}
+    Position: {x: 0.000000, y: 18.500000, z: 120.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 114.000000, y: 33.000000, z: 4.000000}
+    Scale: {x: 114.000000, y: 37.000000, z: 4.000000}
     HasSegmentScaleCompensation: false
   Children:
     []
@@ -1761,9 +1808,9 @@
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: -59.000000, y: 16.500000, z: 0.000000}
+    Position: {x: -59.000000, y: 18.500000, z: 0.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 4.000000, y: 33.000000, z: 244.000000}
+    Scale: {x: 4.000000, y: 37.000000, z: 244.000000}
     HasSegmentScaleCompensation: false
   Children:
     []
@@ -1852,7 +1899,6 @@
   ScriptAsset: !<reference> 8f71d9f9-77e0-4451-ac03-54432951ff1b
   ScriptInputsDefault:
     textColor: true
-    lineTextSize: true
     plantedText: true
     doneLabel: true
     doneButtonWidthCm: true
@@ -1861,7 +1907,7 @@
   ScriptInputs:
     "":
       textColor: !<Vec4> {x: 1.000000, y: 0.960000, z: 0.860000, w: 1.000000}
-      lineTextSize: !<float> 190.000000
+      lineTextSize: !<float> 265.000000
       plantedText: Your bed is planted
       doneLabel: Done
       doneButtonWidthCm: !<float> 12.000000
@@ -2122,9 +2168,9 @@
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: 59.000000, y: 16.500000, z: 0.000000}
+    Position: {x: 59.000000, y: 18.500000, z: 0.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 4.000000, y: 33.000000, z: 244.000000}
+    Scale: {x: 4.000000, y: 37.000000, z: 244.000000}
     HasSegmentScaleCompensation: false
   Children:
     []
@@ -2421,6 +2467,7 @@
       zucchiniModel: !<reference.ObjectPrefab> fae172e2-c528-43a1-a582-45c3f86c9903
       basilModel: !<reference.ObjectPrefab> a08dc357-078c-4362-ac5f-80b4f96c3e52
       lettuceModel: !<reference.ObjectPrefab> b212f598-e5b3-4920-af41-f45095f24f2d
+      stakeMaterial: !<reference.Material> 98697a73-f504-45b0-8104-075437b0afe5
       softChime: !<reference.AudioTrackAsset> c2e4c8c3-6f25-4237-8fd1-3fd96f934ed9
       successChime: !<reference.AudioTrackAsset> 89e5ef0a-1db3-4d89-9af2-cefef6ae61c0
       pickupTick: !<reference.AudioTrackAsset> 9c16197d-7bc5-4e56-824b-93724d8783ae
@@ -2569,6 +2616,8 @@
     packetHeightCm: true
     gapCm: true
     textColor: true
+    hintText: true
+    hintTextSize: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -2578,6 +2627,8 @@
       gapCm: !<float> 2.000000
       viewingDistanceCm: !<float> 150.000000
       textColor: !<Vec4> {x: 1.000000, y: 0.960000, z: 0.860000, w: 1.000000}
+      hintText: Grab a packet
+      hintTextSize: !<float> 170.000000
   ScriptTypes:
     "":
       {}
@@ -2658,6 +2709,22 @@
     - !<own> 4467472c-d5b2-422e-b0b2-2ed4362e86df
   Components:
     []
+- !<ScriptComponent/d289bd18-2759-4be7-97ae-38e5c8194949>
+  PrefabRemaps:
+    []
+  Name: AgentInteractScript
+  Enabled: true
+  ScriptAsset: !<reference> 29091811-e792-46be-bfa4-28ddec5f11be
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      {}
+  ScriptTypes:
+    "":
+      {}
 - !<ScriptComponent/d37d8011-2aa5-4d0d-9f50-c6c91151475a>
   PrefabRemaps:
     []
@@ -2791,6 +2858,8 @@
     monthLabels: true
     viewingDistanceCm: true
     labelColor: true
+    hintText: true
+    hintTextSize: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -2800,6 +2869,8 @@
       monthLabels: "May,Jun,Jul,Aug"
       viewingDistanceCm: !<float> 140.000000
       labelColor: !<Vec4> {x: 1.000000, y: 0.960000, z: 0.860000, w: 1.000000}
+      hintText: Drag to August
+      hintTextSize: !<float> 170.000000
   ScriptTypes:
     "":
       {}

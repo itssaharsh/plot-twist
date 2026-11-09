@@ -154,3 +154,28 @@ export function buildTick(sizeCm: number, strokeCm: number): RenderMesh {
   mb.updateMesh()
   return mb.getMesh()
 }
+
+/**
+ * Upright square post (a garden stake), base at y = 0, `widthCm` square and `heightCm` tall.
+ * Six faces with outward normals, so it shades correctly with an opaque lit material.
+ */
+export function buildPost(widthCm: number, heightCm: number): RenderMesh {
+  const mb = newBuilder()
+  const idx: number[] = []
+  const h = widthCm / 2
+  const quad = (p: number[][], n: number[]) => {
+    const b = mb.getVerticesCount()
+    const uv = [[0, 0], [1, 0], [1, 1], [0, 1]]
+    for (let i = 0; i < 4; i++) mb.appendVerticesInterleaved([p[i][0], p[i][1], p[i][2], n[0], n[1], n[2], uv[i][0], uv[i][1]])
+    idx.push(b, b + 1, b + 2, b, b + 2, b + 3)
+  }
+  const H = heightCm
+  quad([[-h, 0, h], [h, 0, h], [h, H, h], [-h, H, h]], [0, 0, 1]) // +Z
+  quad([[h, 0, -h], [-h, 0, -h], [-h, H, -h], [h, H, -h]], [0, 0, -1]) // -Z
+  quad([[h, 0, h], [h, 0, -h], [h, H, -h], [h, H, h]], [1, 0, 0]) // +X
+  quad([[-h, 0, -h], [-h, 0, h], [-h, H, h], [-h, H, -h]], [-1, 0, 0]) // -X
+  quad([[-h, H, h], [h, H, h], [h, H, -h], [-h, H, -h]], [0, 1, 0]) // top
+  mb.appendIndices(idx)
+  mb.updateMesh()
+  return mb.getMesh()
+}

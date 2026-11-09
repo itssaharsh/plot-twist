@@ -60,7 +60,13 @@ export async function freshPlot(): Promise<PlotTwistMain> {
   await waitUntil(() => getMain().isReady(), 30000, "PlotTwistMain.isReady()")
   const main = getMain()
   main.resetPlot()
-  await sleep(400)
+  const t0 = getTime()
+  let frames = 0
+  while (getTime() - t0 < 0.4) {
+    await nextFrame()
+    frames++
+  }
+  log(`preview frame rate ≈ ${(frames / (getTime() - t0)).toFixed(1)} fps`)
   check(main.getPlants().length === 0, "bed is empty after resetPlot()")
   checkNear(main.getMonth(), 0, 0.001, "month after resetPlot()")
   return main

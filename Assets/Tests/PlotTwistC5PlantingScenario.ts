@@ -55,6 +55,8 @@ export class PlotTwistC5PlantingScenario extends Scenario {
     check(planted.isEnabledInHierarchy, "PlantedMessage visible")
     const text = planted.getComponent("Component.Text") as Text
     checkEq(text ? text.text : "", "Your bed is planted", "PlantedMessage text")
+    check(main.isBedPlanted(), "bed is planted")
+    check(main.getUiState().sliderVisible, "slider is back after the bed is planted")
 
     log("C5 passed")
   }

@@ -24,6 +24,7 @@ export class PlotTwistC1PlantScenario extends Scenario {
     const packetSO = sceneObject("SeedPacket_Tomato")
     const packetPosBefore = packetSO.getTransform().getWorldPosition()
     const packet = interactor.interactable("SeedPacket_Tomato")
+    check(main.getUiState().packetHintVisible, '"Grab a packet" hint shows before the first plant')
 
     // 1. Drag the tomato packet onto the soil and let go.
     await interactor.dragToPoint(packet, main.bedToWorld(-20, SOIL_Y, -200))
@@ -35,6 +36,7 @@ export class PlotTwistC1PlantScenario extends Scenario {
     checkNear(first.z, -200, 2, "first plant z (bed cm)")
     checkNear(first.heightCm, 8, 0.01, "seedling height in May")
     checkNear(first.footprintCm, 8, 0.01, "seedling width in May")
+    check(!main.getUiState().packetHintVisible, '"Grab a packet" hint gone after the first plant')
 
     // 2. The seedling shows a ring of its spacing (tomato: 24 in = 61 cm).
     const plantSO = sceneObject(first.name)

@@ -28,6 +28,8 @@
   ExportUid: 00000000-0000-0000-0000-000000000000
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
+    hintText: false
+    hintTextSize: false
     labelColor: false
     monthLabels: false
     sliderHeightCm: false
@@ -47,6 +49,8 @@
       monthLabels: "May,Jun,Jul,Aug"
       viewingDistanceCm: !<float> 140.000000
       labelColor: !<Vec4> {x: 1.000000, y: 0.960000, z: 0.860000, w: 1.000000}
+      hintText: Drag to August
+      hintTextSize: !<float> 170.000000
   ScriptTypes:
     -
       {}
@@ -60,4 +64,6 @@
     - '// @input string monthLabels = "May,Jun,Jul,Aug" {"hint":"Tick labels, comma separated, left (May) to right (Aug)"}'
     - '// @input float viewingDistanceCm = 140 {"hint":"Typical viewing distance (cm) used to scale the tick labels", "widget":"slider", "min":60, "max":250, "step":5}'
     - '// @input vec4 labelColor = "{1,0.96,0.86,1}" {"hint":"Tick label colour (keep it light)", "widget":"color"}'
+    - '// @input string hintText = "Drag to August" {"hint":"First-use hint shown above the slider while there are plants and it is still at May"}'
+    - '// @input float hintTextSize = 170 {"hint":"Hint text size (Text.size; 190 ≈ 3 cm capitals)", "widget":"slider", "min":80, "max":300, "step":5}'
     - '// @ui {"widget":"group_end"}'

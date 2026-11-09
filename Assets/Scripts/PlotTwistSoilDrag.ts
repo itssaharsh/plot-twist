@@ -47,6 +47,17 @@ export class SoilDragTracker {
     return this.lastLocal
   }
 
+  /**
+   * Call on drag end: the soil point under the pointer at the moment of release (no drag vector
+   * is summed again). Falls back to the last tracked point. Using the release position, not the
+   * previous frame's, keeps the drop exactly where the user let go even at low frame rates.
+   */
+  finish(ev: InteractorEvent): vec3 | null {
+    const q = this.compute(ev)
+    if (q) this.lastLocal = q
+    return this.lastLocal
+  }
+
   private soilYWorld(): number {
     return this.plotRoot.getWorldTransform().multiplyPoint(new vec3(0, BED.soilY, 0)).y
   }

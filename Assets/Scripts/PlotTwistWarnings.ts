@@ -6,17 +6,21 @@
  * Reads: plant plans from the Garden, candidates from PlotTwistGeometry.evaluateWarnings.
  * Must not: move plants or own plant state.
  */
-import {PlotTwistGarden} from "./PlotTwistGarden"
+import {PlotTwistGarden, WARNING_AMBER} from "./PlotTwistGarden"
 import {WarningKind, evaluateWarnings, isAugust} from "./PlotTwistGeometry"
 import {PlotTwistGuidanceUI} from "./PlotTwistGuidanceUI"
 import {PlotTwistPointer} from "./PlotTwistPointer"
 
-const AMBER = new vec4(1.0, 0.72, 0.2, 1.0)
+const AMBER = WARNING_AMBER
 const GREEN = new vec4(0.45, 0.95, 0.5, 1.0)
 const PULSE_SEC = 0.55 // one pulse; two pulses then hold
 const RESOLVE_SEC = 1.0 // green ring hold
 const LINE_FADE_SEC = 0.5
 const LINE_ABOVE_TOP_CM = 10
+/** Plants further than this from the bed's centre line get a line that runs toward the centre. */
+const LINE_SIDE_CM = 18
+/** How far past the plant's centre the line's outer end sits (cm). */
+const LINE_OUTER_OFFSET_CM = 12
 
 export interface ActiveWarning {
   plantName: string
@@ -123,10 +127,14 @@ export class PlotTwistWarnings {
       p.warningRing.getTransform().setLocalScale(new vec3(s, 1, s))
       p.warningMat.mainPass.baseColor = AMBER
       // Line sits ~10 cm above the plant's top and follows it while dragged.
-      const local = new vec3(p.x, p.root.getTransform().getLocalPosition().y + p.heightCm + LINE_ABOVE_TOP_CM, p.z)
+      // Near a side of the bed, anchor the line's outer end just past the plant so the text runs
+      // back over the bed (and stays in view) instead of off its edge.
+      const grow = p.x > LINE_SIDE_CM ? 1 : p.x < -LINE_SIDE_CM ? -1 : 0
+      const x = p.x + grow * LINE_OUTER_OFFSET_CM
+      const local = new vec3(x, p.root.getTransform().getLocalPosition().y + p.heightCm + LINE_ABOVE_TOP_CM, p.z)
       const parent = p.root.getParent()
       const world = parent ? parent.getTransform().getWorldTransform().multiplyPoint(local) : local
-      this.guidance.setWarningLinePosition(world)
+      this.guidance.setWarningLinePosition(world, grow)
       this.pointer.update(this.plotRoot.getInvertedWorldTransform().multiplyPoint(p.root.getTransform().getWorldPosition()), now)
     } else if (this.phase === "resolving") {
       p.warningRing.getTransform().setLocalScale(vec3.one())
